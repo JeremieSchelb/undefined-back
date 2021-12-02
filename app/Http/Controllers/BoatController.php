@@ -14,7 +14,7 @@ class BoatController extends Controller
      */
     public function index()
     {
-        //
+        return Boat::orderBy('name')->paginate(10);
     }
 
     /**
@@ -36,7 +36,7 @@ class BoatController extends Controller
      */
     public function show(Boat $boat)
     {
-        //
+        return $boat;
     }
 
     /**
@@ -59,6 +59,7 @@ class BoatController extends Controller
      */
     public function destroy(Boat $boat)
     {
-        //
+        $boat->delete();
+        return $boat->id;
     }
 }

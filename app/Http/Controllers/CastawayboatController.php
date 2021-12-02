@@ -14,7 +14,7 @@ class CastawayboatController extends Controller
      */
     public function index()
     {
-        //
+        return Castawayboat::orderBy('name')->paginate(10);
     }
 
     /**
@@ -36,7 +36,7 @@ class CastawayboatController extends Controller
      */
     public function show(Castawayboat $castawayboat)
     {
-        //
+        return $castawayboat;
     }
 
     /**
@@ -59,6 +59,7 @@ class CastawayboatController extends Controller
      */
     public function destroy(Castawayboat $castawayboat)
     {
-        //
+        $castawayboat->delete();
+        return $castawayboat->id;
     }
 }

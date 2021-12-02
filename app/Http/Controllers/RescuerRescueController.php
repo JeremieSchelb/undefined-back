@@ -14,7 +14,7 @@ class RescuerRescueController extends Controller
      */
     public function index()
     {
-        //
+        return RescuerRescue::all();
     }
 
     /**
@@ -36,7 +36,7 @@ class RescuerRescueController extends Controller
      */
     public function show(RescuerRescue $rescuerRescue)
     {
-        //
+        return $rescuerRescue;
     }
 
     /**
@@ -59,6 +59,7 @@ class RescuerRescueController extends Controller
      */
     public function destroy(RescuerRescue $rescuerRescue)
     {
-        //
+        $rescuerRescue->delete();
+        return $rescuerRescue->id;
     }
 }

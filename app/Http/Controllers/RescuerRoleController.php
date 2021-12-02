@@ -14,7 +14,7 @@ class RescuerRoleController extends Controller
      */
     public function index()
     {
-        //
+        return RescuerRole::orderBy('label')->paginate(10);
     }
 
     /**
@@ -36,7 +36,7 @@ class RescuerRoleController extends Controller
      */
     public function show(RescuerRole $rescuerRole)
     {
-        //
+        return $rescuerRole;
     }
 
     /**
@@ -59,6 +59,7 @@ class RescuerRoleController extends Controller
      */
     public function destroy(RescuerRole $rescuerRole)
     {
-        //
+        $rescuerRole->delete();
+        return $rescuerRole->id;
     }
 }

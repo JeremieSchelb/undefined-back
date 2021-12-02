@@ -14,7 +14,7 @@ class RescuerController extends Controller
      */
     public function index()
     {
-        //
+        return Rescuer::orderBy('firstname')->orderBy('lastname')->paginate(10);
     }
 
     /**
@@ -36,7 +36,7 @@ class RescuerController extends Controller
      */
     public function show(Rescuer $rescuer)
     {
-        //
+        return $rescuer;
     }
 
     /**
@@ -59,6 +59,7 @@ class RescuerController extends Controller
      */
     public function destroy(Rescuer $rescuer)
     {
-        //
+        $rescuer->delete();
+        return $rescuer->id;
     }
 }

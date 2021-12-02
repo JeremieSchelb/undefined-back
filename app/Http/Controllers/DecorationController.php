@@ -14,7 +14,7 @@ class DecorationController extends Controller
      */
     public function index()
     {
-        //
+        return Decoration::orderBy('label')->paginate(10);
     }
 
     /**
@@ -36,7 +36,7 @@ class DecorationController extends Controller
      */
     public function show(Decoration $decoration)
     {
-        //
+        return $decoration;
     }
 
     /**
@@ -59,6 +59,7 @@ class DecorationController extends Controller
      */
     public function destroy(Decoration $decoration)
     {
-        //
+        $decoration->delete();
+        return $decoration->id;
     }
 }
