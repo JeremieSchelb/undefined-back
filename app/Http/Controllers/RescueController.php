@@ -14,7 +14,7 @@ class RescueController extends Controller
      */
     public function index()
     {
-        //
+        return Rescue::orderBy('datetime')->paginate(10);
     }
 
     /**
@@ -36,7 +36,7 @@ class RescueController extends Controller
      */
     public function show(Rescue $rescue)
     {
-        //
+        return $rescue;
     }
 
     /**
@@ -59,6 +59,7 @@ class RescueController extends Controller
      */
     public function destroy(Rescue $rescue)
     {
-        //
+        $rescue->delete();
+        return $rescue->id;
     }
 }

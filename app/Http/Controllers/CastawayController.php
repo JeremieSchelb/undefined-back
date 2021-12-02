@@ -14,7 +14,7 @@ class CastawayController extends Controller
      */
     public function index()
     {
-        //
+        return Castaway::orderBy('firstname')->orderBy('lastname')->paginate(10);
     }
 
     /**
@@ -36,7 +36,7 @@ class CastawayController extends Controller
      */
     public function show(Castaway $castaway)
     {
-        //
+        return $castaway;
     }
 
     /**
@@ -59,6 +59,7 @@ class CastawayController extends Controller
      */
     public function destroy(Castaway $castaway)
     {
-        //
+        $castaway->delete();
+        return $castaway->id;
     }
 }

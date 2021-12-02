@@ -14,7 +14,7 @@ class StationController extends Controller
      */
     public function index()
     {
-        //
+        return Station::orderBy('name')->paginate(10);
     }
 
     /**
@@ -36,7 +36,7 @@ class StationController extends Controller
      */
     public function show(Station $station)
     {
-        //
+        return $station;
     }
 
     /**
@@ -59,6 +59,7 @@ class StationController extends Controller
      */
     public function destroy(Station $station)
     {
-        //
+        $station->delete();
+        return $station->id;
     }
 }

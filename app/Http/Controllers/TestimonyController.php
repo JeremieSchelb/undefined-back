@@ -14,7 +14,7 @@ class TestimonyController extends Controller
      */
     public function index()
     {
-        //
+        return Testimony::orderBy('updated_at', 'desc')->paginate(10);
     }
 
     /**
@@ -36,7 +36,7 @@ class TestimonyController extends Controller
      */
     public function show(Testimony $testimony)
     {
-        //
+        return $testimony;
     }
 
     /**
@@ -59,6 +59,7 @@ class TestimonyController extends Controller
      */
     public function destroy(Testimony $testimony)
     {
-        //
+        $testimony->delete();
+        return $testimony->id;
     }
 }
