@@ -15,11 +15,10 @@ class CreateRescuerRolesTable extends Migration
     {
         Schema::create('rescuerRoles', function (Blueprint $table) {
             $table->id();
-
-            $table->string("label", 255);
-
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->string("label");
         });
     }
 
