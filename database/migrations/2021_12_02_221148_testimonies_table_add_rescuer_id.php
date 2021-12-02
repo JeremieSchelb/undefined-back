@@ -15,6 +15,7 @@ class TestimoniesTableAddRescuerId extends Migration
     {
         Schema::table('testimonies', function (Blueprint $table) {
            $table->foreignId('rescuer_id')
+               ->nullable()
                ->constrained()
                ->cascadeOnUpdate()
                ->nullOnDelete();

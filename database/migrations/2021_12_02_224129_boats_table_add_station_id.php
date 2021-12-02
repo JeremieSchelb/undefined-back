@@ -15,6 +15,7 @@ class BoatsTableAddStationId extends Migration
     {
         Schema::table('boats', function (Blueprint $table) {
             $table->foreignId('station_id')
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->nullOnDelete();

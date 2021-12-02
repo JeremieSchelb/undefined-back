@@ -13,16 +13,18 @@ class CreateBoatRescueTable extends Migration
      */
     public function up()
     {
-        Schema::create('boat_rescue', function (Blueprint $table) {
+        Schema::create('boat_rescues', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreignId('boat_id')
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
             $table->foreignId('rescue_id')
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
@@ -36,6 +38,6 @@ class CreateBoatRescueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('boat_rescue');
+        Schema::dropIfExists('boat_rescues');
     }
 }

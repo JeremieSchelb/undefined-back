@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDecorationRescuersTable extends Migration
+class CreateDecorationRescuerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +14,20 @@ class CreateDecorationRescuersTable extends Migration
      */
     public function up()
     {
-        Schema::create('decoration_rescuers', function (Blueprint $table) {
+        Schema::create('decoration_rescuer', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table-> softDeletes();
 
-            $table->dateTime('datetime');
+            $table->dateTime('date');
 
             $table->foreignId('decoration_id')
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
             $table->foreignId('rescuer_id')
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
@@ -39,6 +41,6 @@ class CreateDecorationRescuersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('decoration_rescuers');
+        Schema::dropIfExists('decoration_rescuer');
     }
 }

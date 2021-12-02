@@ -13,16 +13,18 @@ class CreateCastawayRescueTable extends Migration
      */
     public function up()
     {
-        Schema::create('castaway_rescue', function (Blueprint $table) {
+        Schema::create('castaway_rescues', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreignId('castaway_id')
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
             $table->foreignId('rescue_id')
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
@@ -36,6 +38,6 @@ class CreateCastawayRescueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('castaway_rescue');
+        Schema::dropIfExists('castaway_rescues');
     }
 }

@@ -15,6 +15,7 @@ class TestimoniesTableAddCastawayId extends Migration
     {
         Schema::table('testimonies', function (Blueprint $table) {
             $table->foreignId('castaway_id')
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->nullOnDelete();

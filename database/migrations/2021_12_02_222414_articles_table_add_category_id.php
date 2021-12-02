@@ -15,6 +15,7 @@ class ArticlesTableAddCategoryId extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->foreignId('category_id')
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
