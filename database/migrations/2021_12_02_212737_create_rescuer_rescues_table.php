@@ -15,18 +15,12 @@ class CreateRescuerRescuesTable extends Migration
     {
         Schema::create('rescuerRescues', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('rescuer')->nullable();
-            $table->foreign('rescuers_id')->references('id')->on('rescuer')->cascadeOnUpdate()->nullOnDelete();
-
-            $table->foreignId("rescue")->nullable();
-            $table->foreign("rescues_id")->references("id")->on("rescuer")->cascadeOnUpdate()->nullOnDelete();
-
-            $table->foreignId("rescuerRole")->nullable();
-            $table->foreign("rescuerRoles_id")->references("id")->on("rescuerRole")->cascadeOnUpdate()->nullOnDelete();
-
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreignId('rescuer_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId("rescue_id")->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId("rescuerrole_id")->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

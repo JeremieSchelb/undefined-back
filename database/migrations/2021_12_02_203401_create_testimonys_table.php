@@ -15,11 +15,10 @@ class CreateTestimonysTable extends Migration
     {
         Schema::create('testimonys', function (Blueprint $table) {
             $table->id();
-
-            $table->text("content");
-
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->longText("content");
         });
     }
 
