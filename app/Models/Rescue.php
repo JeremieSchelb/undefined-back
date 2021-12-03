@@ -18,6 +18,11 @@ class Rescue extends Model
 
     protected $dates = ['date'];
 
+    public function castaways()
+    {
+        return $this->belongsTo(Castaway::class);
+    }
+
     public function castawayboats()
     {
         return $this->hasMany(Castawayboat::class);

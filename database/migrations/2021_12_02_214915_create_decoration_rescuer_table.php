@@ -19,7 +19,7 @@ class CreateDecorationRescuerTable extends Migration
             $table->timestamps();
             $table-> softDeletes();
 
-            $table->dateTime('date');
+            $table->dateTime('datetime');
 
             $table->foreignId('decoration_id')
                 ->nullable()

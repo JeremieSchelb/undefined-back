@@ -17,6 +17,11 @@ class Rescuer extends Model
         'lastname'
     ];
 
+    public function decorations()
+    {
+        return $this->belongsToMany(Decoration::class);
+    }
+
     public function testimonies()
     {
         return $this->hasMany(Testimony::class);
