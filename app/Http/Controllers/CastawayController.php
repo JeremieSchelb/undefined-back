@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CastawayRequest;
 use App\Models\Castaway;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,14 @@ class CastawayController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CastawayRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $elem = new Castaway();
+        $elem->fill($data)->save();
+
+        return $elem;
     }
 
     /**

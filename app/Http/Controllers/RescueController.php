@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RescueRequest;
 use App\Models\Rescue;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,14 @@ class RescueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RescueRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $elem = new Rescue();
+        $elem->fill($data)->save();
+
+        return $elem;
     }
 
     /**

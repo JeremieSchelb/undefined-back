@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DecorationRequest;
 use App\Models\Decoration;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,14 @@ class DecorationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DecorationRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $elem = new Decoration();
+        $elem->fill($data)->save();
+
+        return $elem;
     }
 
     /**

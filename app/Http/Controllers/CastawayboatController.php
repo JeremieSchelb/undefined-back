@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CastawayboatRequest;
 use App\Models\Castawayboat;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,14 @@ class CastawayboatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CastawayboatRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $elem = new Castawayboat();
+        $elem->fill($data)->save();
+
+        return $elem;
     }
 
     /**

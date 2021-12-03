@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BoatRequest;
 use App\Models\Boat;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,14 @@ class BoatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BoatRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $elem = new Boat();
+        $elem->fill($data)->save();
+
+        return $elem;
     }
 
     /**

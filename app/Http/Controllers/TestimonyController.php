@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TestimonyRequest;
 use App\Models\Testimony;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,14 @@ class TestimonyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TestimonyRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $elem = new Testimony();
+        $elem->fill($data)->save();
+
+        return $elem;
     }
 
     /**

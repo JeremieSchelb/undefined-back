@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RescuerRoleRequest;
 use App\Models\RescuerRole;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,14 @@ class RescuerRoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RescuerRoleRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $elem = new RescuerRole();
+        $elem->fill($data)->save();
+
+        return $elem;
     }
 
     /**
