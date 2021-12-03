@@ -42,7 +42,7 @@ class CastawayboatController extends Controller
      */
     public function show(Castawayboat $castawayboat)
     {
-        return $castawayboat;
+        return $castawayboat->historyChanges();
     }
 
     /**

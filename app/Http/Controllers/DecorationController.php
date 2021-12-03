@@ -42,7 +42,7 @@ class DecorationController extends Controller
      */
     public function show(Decoration $decoration)
     {
-        return $decoration;
+        return $decoration->historyChanges();
     }
 
     /**

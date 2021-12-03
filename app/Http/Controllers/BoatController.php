@@ -42,7 +42,7 @@ class BoatController extends Controller
      */
     public function show(Boat $boat)
     {
-        return $boat;
+        return $boat->historyChanges();
     }
 
     /**
