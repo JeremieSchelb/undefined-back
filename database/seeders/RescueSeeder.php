@@ -39,7 +39,7 @@ class RescueSeeder extends Seeder
                     )
             )
             ->has(
-                Castawayboat::factory()
+                CastawayBoat::factory()
                     ->count(10)
             )
             ->hasAttached(
