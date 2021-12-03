@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+    // Protected routes
 });
 
 Route::resource('articles', ArticleController::class);
@@ -44,3 +45,5 @@ Route::resource('rescuer-roles', RescuerRoleController::class);
 Route::resource('stations', StationController::class);
 Route::resource('testimonies', TestimonyController::class);
 Route::resource('users', UserController::class);
+
+Route::post('auth', [UserController::class, 'authenticate']);
