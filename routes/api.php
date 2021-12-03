@@ -29,10 +29,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-    // Protected routes
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+//     // Protected routes
+// });
 
 Route::middleware('auth:sanctum')->get('validate/{id}', [AdminController::class, 'acceptUpdate']);
 

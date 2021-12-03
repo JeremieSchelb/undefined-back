@@ -46,11 +46,11 @@ class Controller extends BaseController
                 'city',
                 'alive'
             ])
-            ->registerModel(Castawayboat::class, "name")
+            // ->registerModel(Castawayboat::class, "name")
             ->registerModel(Category::class, "label")
             ->registerModel(Decoration::class, "label")
             ->registerModel(Rescue::class, ["location", "report", "date"])
-            ->registerModel(RescuerRole::class, "label")
+            // ->registerModel(RescuerRole::class, "label")
             ->registerModel(Station::class, [
                 'name',
                 'address',
