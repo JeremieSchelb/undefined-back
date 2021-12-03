@@ -13,7 +13,7 @@ class CreateBoatRescueTable extends Migration
      */
     public function up()
     {
-        Schema::create('boat_rescues', function (Blueprint $table) {
+        Schema::create('boat_rescue', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->softDeletes();
@@ -38,6 +38,6 @@ class CreateBoatRescueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('boat_rescues');
+        Schema::dropIfExists('boat_rescue');
     }
 }
