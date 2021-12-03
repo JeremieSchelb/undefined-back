@@ -42,7 +42,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return $article;
+        return $article->historyChanges();
     }
 
     /**
