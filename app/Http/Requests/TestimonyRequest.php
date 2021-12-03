@@ -24,7 +24,10 @@ class TestimonyRequest extends FormRequest
     public function rules()
     {
         return [
-            "content" => "required|min:3|string"
+            "content" => "required|min:3|string",
+            "rescuer_id" => "exists:rescuers,id",
+            "rescue_id" => "exists:rescues,id",
+            "castaway_id" => "exists:castaways,id",
         ];
     }
 }

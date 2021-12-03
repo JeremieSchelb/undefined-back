@@ -44,5 +44,3 @@ Route::resource('rescuer-roles', RescuerRoleController::class);
 Route::resource('stations', StationController::class);
 Route::resource('testimonies', TestimonyController::class);
 Route::resource('users', UserController::class);
-
-// TODO: ::all()->paginate(10)

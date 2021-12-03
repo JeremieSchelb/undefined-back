@@ -18,4 +18,9 @@ class Castaway extends Model
         'city',
         'alive'
     ];
+
+    public function testimonies()
+    {
+        return $this->hasMany(Testimony::class);
+    }
 }
