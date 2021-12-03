@@ -42,7 +42,7 @@ class StationController extends Controller
      */
     public function show(Station $station)
     {
-        return $station;
+        return $station->historyChanges();
     }
 
     /**

@@ -15,7 +15,7 @@ class RescueController extends Controller
      */
     public function index()
     {
-        return Rescue::orderBy('datetime')->paginate(10);
+        return Rescue::orderBy('date')->paginate(10);
     }
 
     /**

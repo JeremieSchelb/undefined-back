@@ -42,7 +42,7 @@ class RescuerRoleController extends Controller
      */
     public function show(RescuerRole $rescuerRole)
     {
-        return $rescuerRole;
+        return $rescuerRole->historyChanges();
     }
 
     /**

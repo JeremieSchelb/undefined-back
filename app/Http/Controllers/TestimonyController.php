@@ -42,7 +42,7 @@ class TestimonyController extends Controller
      */
     public function show(Testimony $testimony)
     {
-        return $testimony;
+        return $testimony->historyChanges();
     }
 
     /**

@@ -42,7 +42,7 @@ class RescuerController extends Controller
      */
     public function show(Rescuer $rescuer)
     {
-        return $rescuer;
+        return $rescuer->historyChanges();
     }
 
     /**
