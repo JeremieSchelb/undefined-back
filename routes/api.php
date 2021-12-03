@@ -43,7 +43,7 @@ Route::resource('rescuers', RescuerController::class);
 Route::resource('rescuer-rescues', RescuerRescueController::class);
 Route::resource('rescuer-roles', RescuerRoleController::class);
 Route::resource('stations', StationController::class);
-Route::resource('testimonials', TestimonyController::class);
+Route::resource('testimonies', TestimonyController::class);
 Route::resource('users', UserController::class);
 
 Route::post('auth', [UserController::class, 'authenticate']);
