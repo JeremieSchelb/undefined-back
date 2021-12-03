@@ -11,5 +11,5 @@ class RescuerRescue extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ["rescuer_id", "rescue_id", "rescuerRole_id"];
+    protected $fillable = ["rescuer_id", "rescue_id", "rescuer_role_id"];
 }
