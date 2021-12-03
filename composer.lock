@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "d3c80a967b3bcc68477341f644ff9426",
-=======
-    "content-hash": "6bb696f5e1243d1a73500c7060e8aca2",
->>>>>>> 7656f15b6f8f689f6ae14f1be41f4d62f3b1fbe7
+    "content-hash": "bece2b6fccf9acd45f5268493b002e0a",
     "packages": [
         {
             "name": "antonrom00/laravel-model-changes-history",
