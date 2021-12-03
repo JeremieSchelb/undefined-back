@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,12 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::factory()->count(10)->create();
+        Category::factory()
+            ->count(15)
+            ->has(
+                Article::factory()
+                    ->count(15)
+            )
+            ->create();
     }
 }
