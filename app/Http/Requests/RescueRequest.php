@@ -27,6 +27,8 @@ class RescueRequest extends FormRequest
             'location' => 'string|nullable',
             'report' => 'string|nullable',
             'date' => 'date|nullable',
+            'boats.*' => 'exists:boats,id',
+            'castways.*' => 'exists:castways,id'
         ];
     }
 }

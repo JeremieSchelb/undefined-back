@@ -34,7 +34,8 @@ class BoatRequest extends FormRequest
             'commisionning' => 'nullable|date',
             'withdraw' => 'nullable|date',
             'description' => 'required',
-            'station_id' => "nullable|exists:stations,id"
+            'station_id' => "nullable|exists:stations,id",
+            'rescues.*' => 'exists:rescues,id'
         ];
     }
 }

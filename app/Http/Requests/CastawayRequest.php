@@ -30,6 +30,7 @@ class CastawayRequest extends FormRequest
             'city' => 'nullable|max:255',
             'zipcode' => 'nullable|between:3,15',
             'alive' => 'required|boolean',
+            'rescues.*' => 'exists:rescues,id'
         ];
     }
 }
