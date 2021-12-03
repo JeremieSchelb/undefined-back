@@ -11,6 +11,11 @@ class Category extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'label'
+        'label',
     ];
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 }
