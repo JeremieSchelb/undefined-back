@@ -52,9 +52,12 @@ class DecorationController extends Controller
      * @param  \App\Models\Decoration  $decoration
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Decoration $decoration)
+    public function update(DecorationRequest $request, Decoration $decoration)
     {
-        //
+        $data = $request->validated();
+        $decoration->fill($data)->save();
+
+        return $decoration;
     }
 
     /**

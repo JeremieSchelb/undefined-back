@@ -52,9 +52,12 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        $data = $request->validated();
+        $user->fill($data)->save();
+
+        return $user;
     }
 
     /**

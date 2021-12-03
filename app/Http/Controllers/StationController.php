@@ -52,9 +52,12 @@ class StationController extends Controller
      * @param  \App\Models\Station  $station
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Station $station)
+    public function update(StationRequest $request, Station $station)
     {
-        //
+        $data = $request->validated();
+        $station->fill($data)->save();
+
+        return $station;
     }
 
     /**

@@ -52,9 +52,12 @@ class BoatController extends Controller
      * @param  \App\Models\Boat  $boat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Boat $boat)
+    public function update(BoatRequest $request, Boat $boat)
     {
-        //
+        $data = $request->validated();
+        $boat->fill($data)->save();
+
+        return $boat;
     }
 
     /**

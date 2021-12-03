@@ -52,9 +52,12 @@ class RescuerRoleController extends Controller
      * @param  \App\Models\RescuerRole  $rescuerRole
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RescuerRole $rescuerRole)
+    public function update(RescuerRoleRequest $request, RescuerRole $rescuerRole)
     {
-        //
+        $data = $request->validated();
+        $rescuerRole->fill($data)->save();
+
+        return $rescuerRole;
     }
 
     /**

@@ -52,9 +52,12 @@ class TestimonyController extends Controller
      * @param  \App\Models\Testimony  $testimony
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Testimony $testimony)
+    public function update(TestimonyRequest $request, Testimony $testimony)
     {
-        //
+        $data = $request->validated();
+        $testimony->fill($data)->save();
+
+        return $testimony;
     }
 
     /**

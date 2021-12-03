@@ -52,9 +52,12 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(ArticleRequest $request, Article $article)
     {
-        //
+        $data = $request->validated();
+        $article->fill($data)->save();
+
+        return $article;
     }
 
     /**

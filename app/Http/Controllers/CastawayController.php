@@ -52,9 +52,12 @@ class CastawayController extends Controller
      * @param  \App\Models\Castaway  $castaway
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Castaway $castaway)
+    public function update(CastawayRequest $request, Castaway $castaway)
     {
-        //
+        $data = $request->validated();
+        $castaway->fill($data)->save();
+
+        return $castaway;
     }
 
     /**

@@ -52,9 +52,12 @@ class RescuerRescueController extends Controller
      * @param  \App\Models\RescuerRescue  $rescuerRescue
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RescuerRescue $rescuerRescue)
+    public function update(RescuerRescueRequest $request, RescuerRescue $rescuerRescue)
     {
-        //
+        $data = $request->validated();
+        $rescuerRescue->fill($data)->save();
+
+        return $rescuerRescue;
     }
 
     /**
