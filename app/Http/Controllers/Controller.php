@@ -24,8 +24,6 @@ class Controller extends BaseController
 
     public function search(string $search)
     {
-        $search = str_replace('-', ' ', $search);
-
         $searchResults = (new Search())
             ->registerModel(Article::class, ['title', 'content'])
             ->registerModel(Boat::class, [
