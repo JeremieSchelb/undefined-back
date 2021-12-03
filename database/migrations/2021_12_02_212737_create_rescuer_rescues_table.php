@@ -13,14 +13,14 @@ class CreateRescuerRescuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('rescuerRescues', function (Blueprint $table) {
+        Schema::create('rescuer_rescues', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreignId('rescuer_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId("rescue_id")->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId("rescuerrole_id")->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId("rescuer_role_id")->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
         });
     }
 
@@ -31,6 +31,6 @@ class CreateRescuerRescuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rescuerRescue');
+        Schema::dropIfExists('rescuer_rescue');
     }
 }

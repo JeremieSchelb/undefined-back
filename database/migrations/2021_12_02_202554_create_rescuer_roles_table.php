@@ -13,7 +13,7 @@ class CreateRescuerRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('rescuerRoles', function (Blueprint $table) {
+        Schema::create('rescuer_roles', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->softDeletes();
@@ -29,6 +29,6 @@ class CreateRescuerRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rescuerRole');
+        Schema::dropIfExists('rescuer_role');
     }
 }
