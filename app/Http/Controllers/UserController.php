@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -27,6 +29,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $data = $request->validated();
+        $data['password'] = Hash::make($data['password']);
 
         $elem = new User();
         $elem->fill($data)->save();
@@ -86,13 +89,12 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return redirect()->intended('dashboard');
+            $user = Auth::user();
+            $user->tokens()->delete();
+            $token = $user->createToken('api'.date('c'));
+            return $token->plainTextToken;
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        return false;
     }
 }

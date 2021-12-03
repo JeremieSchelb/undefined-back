@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BoatController;
 use App\Http\Controllers\CastawayboatController;
@@ -30,7 +31,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+    // Protected routes
 });
+
+Route::middleware('auth:sanctum')->get('validate/{id}', [AdminController::class, 'acceptUpdate']);
 
 Route::resource('articles', ArticleController::class);
 Route::resource('boats', BoatController::class);
@@ -47,3 +51,4 @@ Route::resource('testimonies', TestimonyController::class);
 Route::resource('users', UserController::class);
 
 Route::get("search/{search}", [Controller::class, 'search']);
+Route::post('auth', [UserController::class, 'authenticate']);

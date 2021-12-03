@@ -30,6 +30,8 @@ class CastawayController extends Controller
 
         $elem = new Castaway();
         $elem->fill($data)->save();
+        $elem->rescues()->attach(@$data['rescues'] ?? []);
+
 
         return $elem;
     }
@@ -56,6 +58,7 @@ class CastawayController extends Controller
     {
         $data = $request->validated();
         $castaway->fill($data)->save();
+        $castaway->rescues()->sync(@$data['rescues'] ?? []);
 
         return $castaway;
     }

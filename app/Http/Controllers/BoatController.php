@@ -30,6 +30,7 @@ class BoatController extends Controller
 
         $elem = new Boat();
         $elem->fill($data)->save();
+        $elem->rescues()->attach(@$data['rescues'] ?? []);
 
         return $elem;
     }
@@ -56,6 +57,7 @@ class BoatController extends Controller
     {
         $data = $request->validated();
         $boat->fill($data)->save();
+        $boat->rescues()->sync(@$data['rescues'] ?? []);
 
         return $boat;
     }

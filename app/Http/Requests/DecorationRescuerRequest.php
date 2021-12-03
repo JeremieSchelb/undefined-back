@@ -24,7 +24,9 @@ class DecorationRescuerRequest extends FormRequest
     public function rules()
     {
         return [
-            'datetime' => 'date|nullable'
+            'datetime' => 'date|nullable',
+            'decoration_id' => "required|exists:decorations,id",
+            'rescuer_id' => "required|exists:rescuers,id",
         ];
     }
 }

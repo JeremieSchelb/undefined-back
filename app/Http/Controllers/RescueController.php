@@ -30,6 +30,8 @@ class RescueController extends Controller
 
         $elem = new Rescue();
         $elem->fill($data)->save();
+        $elem->boats()->attach(@$data['boats'] ?? []);
+        $elem->castways()->attach(@$data['castways'] ?? []);
 
         return $elem;
     }
@@ -56,6 +58,8 @@ class RescueController extends Controller
     {
         $data = $request->validated();
         $rescue->fill($data)->save();
+        $rescue->boats()->sync(@$data['boats'] ?? []);
+        $rescue->castways()->sync(@$data['castways'] ?? []);
 
         return $rescue;
     }
