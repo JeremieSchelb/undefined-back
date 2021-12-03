@@ -25,7 +25,8 @@ class ArticleRequest extends FormRequest
     {
         return [
             "title" => "required|min:3|string",
-            "content" => "required|min:3|string"
+            "content" => "required|min:3|string",
+            'category_id' => "exists:categories,id"
         ];
     }
 }

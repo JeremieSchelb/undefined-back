@@ -24,7 +24,8 @@ class CastawayboatRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'string|nullable'
+            'name' => 'string|nullable',
+            'rescue_id' => "required|exists:rescues,id"
         ];
     }
 }
