@@ -15,6 +15,11 @@ class Station extends Model
         'address',
         'city',
         'zipcode',
-        'history'
+        'history',
     ];
+
+    public function boats()
+    {
+        return $this->hasMany(Boat::class);
+    }
 }

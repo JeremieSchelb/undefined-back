@@ -11,5 +11,25 @@ class Testimony extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ["content"];
+    protected $fillable = [
+        "content",
+        "rescuer_id",
+        "rescue_id",
+        "castaway_id",
+    ];
+
+    public function rescuer()
+    {
+        return $this->belongsTo(Rescuer::class);
+    }
+
+    public function rescue()
+    {
+        return $this->belongsTo(Rescue::class);
+    }
+
+    public function castaway()
+    {
+        return $this->belongsTo(Castaway::class);
+    }
 }

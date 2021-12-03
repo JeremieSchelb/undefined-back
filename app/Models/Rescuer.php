@@ -16,4 +16,9 @@ class Rescuer extends Model
         'firstname',
         'lastname'
     ];
+
+    public function testimonies()
+    {
+        return $this->hasMany(Testimony::class);
+    }
 }

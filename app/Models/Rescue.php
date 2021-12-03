@@ -13,8 +13,18 @@ class Rescue extends Model
     protected $fillable = [
         'location',
         'report',
-        'date'
+        'date',
     ];
 
     protected $dates = ['date'];
+
+    public function castawayboats()
+    {
+        return $this->hasMany(Castawayboat::class);
+    }
+
+    public function testimonies()
+    {
+        return $this->hasMany(Testimony::class);
+    }
 }

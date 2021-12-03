@@ -11,6 +11,17 @@ class Castawayboat extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'name'
+        'name',
+        'rescue_id'
     ];
+
+    public function rescue()
+    {
+        return $this->belongsTo(Rescue::class);
+    }
+
+    public function testimonies()
+    {
+        return $this->hasMany(Testimony::class);
+    }
 }

@@ -20,8 +20,14 @@ class Boat extends Model
         'draugth',
         'commisionning',
         'withdraw',
-        'description'
+        'description',
+        'station_id'
     ];
 
     protected $dates = ['commisionning', 'withdraw'];
+
+    public function station()
+    {
+        return $this->belongsTo(Station::class);
+    }
 }
