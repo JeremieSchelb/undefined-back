@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CastawayboatFactory extends Factory
+class CastawayBoatFactory extends Factory
 {
     /**
      * Define the model's default state.
