@@ -12,4 +12,9 @@ class RescuerRescue extends Model
     use SoftDeletes;
 
     protected $fillable = ["rescuer_id", "rescue_id", "rescuer_role_id"];
+
+    public function rescuerRole()
+    {
+        return $this->belongsTo(RescuerRole::class);
+    }
 }

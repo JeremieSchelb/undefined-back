@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
+use App\Models\RescuerRescue;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +17,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             CategorySeeder::class,
+
+            RescueSeeder::class,
+            BoatSeeder::class,
+            RescuerRescueSeeder::class,
+            DecorationSeeder::class
         ]);
     }
 }

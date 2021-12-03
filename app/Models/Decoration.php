@@ -14,4 +14,9 @@ class Decoration extends Model
         'label',
         'image'
     ];
+
+    public function rescuers()
+    {
+        return $this->belongsToMany(Rescuer::class);
+    }
 }
