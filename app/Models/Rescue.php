@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Antonrom\ModelChangesHistory\Traits\HasChangesHistory;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Rescue extends Model
+class Rescue extends Model implements Searchable
 {
     use HasFactory, SoftDeletes;
     use HasChangesHistory;
@@ -43,5 +45,16 @@ class Rescue extends Model
     public function rescuerRescue()
     {
         return $this->belongsTo(RescuerRescue::class);
+    }
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('rescues.show', ['rescue' => $this->id]);
+
+        return new \Spatie\Searchable\SearchResult(
+            $this,
+            "sauvetage du " . $this->date . " a " . $this->location,
+            $url
+        );
     }
 }

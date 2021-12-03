@@ -5,6 +5,7 @@ use App\Http\Controllers\BoatController;
 use App\Http\Controllers\CastawayboatController;
 use App\Http\Controllers\CastawayController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\DecorationController;
 use App\Http\Controllers\RescueController;
 use App\Http\Controllers\RescuerController;
@@ -44,3 +45,5 @@ Route::resource('rescuer-roles', RescuerRoleController::class);
 Route::resource('stations', StationController::class);
 Route::resource('testimonies', TestimonyController::class);
 Route::resource('users', UserController::class);
+
+Route::get("search/{search}", [Controller::class, 'search']);
