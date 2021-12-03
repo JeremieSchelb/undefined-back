@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
 
             RescueSeeder::class,
-            BoatSeeder::class,
             RescuerRescueSeeder::class,
             DecorationSeeder::class
         ]);

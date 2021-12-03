@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Boat;
 use App\Models\Castaway;
+use App\Models\Castawayboat;
 use App\Models\Decoration;
 use App\Models\DecorationRescuer;
 use App\Models\Rescue;
@@ -25,7 +26,7 @@ class RescueSeeder extends Seeder
     {
         Rescue::factory()
             ->count(30)
-            ->has(
+            ->hasAttached(
                 Castaway::factory()
                     ->count(20)
             )
@@ -35,6 +36,17 @@ class RescueSeeder extends Seeder
                     ->has(
                         Rescuer::factory()
                             ->count(15)
+                    )
+            )
+            ->has(
+                Castawayboat::factory()
+                    ->count(10)
+            )
+            ->hasAttached(
+                Boat::factory()
+                    ->count(10)
+                    ->for(
+                        Station::factory()
                     )
             )
             ->create();

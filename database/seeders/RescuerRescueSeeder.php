@@ -17,9 +17,8 @@ class RescuerRescueSeeder extends Seeder
     {
         RescuerRescue::factory()
             ->count(5)
-            ->has(
+            ->for(
                 RescuerRole::factory()
-                    ->count(20)
             )
             ->create();
     }
