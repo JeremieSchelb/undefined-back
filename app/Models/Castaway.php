@@ -21,6 +21,11 @@ class Castaway extends Model
         'alive'
     ];
 
+    public function rescues()
+    {
+        return $this->belongsToMany(Rescue::class);
+    }
+
     public function testimonies()
     {
         return $this->hasMany(Testimony::class);

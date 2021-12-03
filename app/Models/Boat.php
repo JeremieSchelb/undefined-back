@@ -32,4 +32,9 @@ class Boat extends Model
     {
         return $this->belongsTo(Station::class);
     }
+
+    public function rescues()
+    {
+        return $this->belongsToMany(Rescue::class);
+    }
 }
