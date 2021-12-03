@@ -16,4 +16,9 @@ class RescuerRole extends Model
     protected $fillable = [
         "label"
     ];
+
+    public function rescuerRescue()
+    {
+        return $this->belongsTo(RescuerRescue::class);
+    }
 }

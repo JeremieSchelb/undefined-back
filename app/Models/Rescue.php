@@ -39,4 +39,9 @@ class Rescue extends Model
     {
         return $this->hasMany(Testimony::class);
     }
+
+    public function rescuerRescue()
+    {
+        return $this->belongsTo(RescuerRescue::class);
+    }
 }

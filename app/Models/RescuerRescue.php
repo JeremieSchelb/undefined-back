@@ -20,4 +20,14 @@ class RescuerRescue extends Model
     {
         return $this->belongsTo(RescuerRole::class);
     }
+
+    public function rescuer()
+    {
+        return $this->belongsTo(Rescuer::class);
+    }
+
+    public function rescue()
+    {
+        return $this->belongsTo(Rescue::class);
+    }
 }

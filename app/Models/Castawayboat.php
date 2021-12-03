@@ -21,9 +21,4 @@ class Castawayboat extends Model
     {
         return $this->belongsTo(Rescue::class);
     }
-
-    public function testimonies()
-    {
-        return $this->hasMany(Testimony::class);
-    }
 }
